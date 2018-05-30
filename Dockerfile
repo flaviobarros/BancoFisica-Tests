@@ -23,25 +23,18 @@ RUN apt-get install -y --no-install-recommends \
 		fonts-texgyre \
 		texlive-full 
 
-## Configure default locale, see https://github.com/rocker-org/rocker/issues/19
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-	&& locale-gen en_US.utf8 \
-	&& /usr/sbin/update-locale LANG=en_US.UTF-8
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
 ENV R_BASE_VERSION 3.5.0
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 ## Also set a default CRAN repo, and make sure littler knows about it too
 ## NB '-t unstable' paused to allow drr35 repo to supply current ones
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
+RUN apt-get update 
+RUN apt-get install -y --no-install-recommends \
 		littler \
                 r-cran-littler \
-		r-base=${R_BASE_VERSION}-* \
-		r-base-dev=${R_BASE_VERSION}-* \
-		r-recommended=${R_BASE_VERSION}-* \
+		r-base \
+		r-base-dev \
+		r-recommended \
         && echo 'options(repos = c(CRAN = "https://cloud.r-project.org/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site \
         && echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r \
 	&& ln -s /usr/lib/R/site-library/littler/examples/install.r /usr/local/bin/install.r \
