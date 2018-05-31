@@ -21,6 +21,10 @@ RUN apt-get install -y --no-install-recommends \
 		wget \
 		ca-certificates \
 		fonts-texgyre \
+		libssl-dev \
+		curl \
+		libssh2-1-dev \
+		libcurl4-openssl-dev \
 		texlive-full 
 
 ENV R_BASE_VERSION 3.5.0
@@ -41,7 +45,7 @@ RUN apt-get install -y --no-install-recommends \
 	&& ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r \
 	&& ln -s /usr/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
 	&& ln -s /usr/lib/R/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
-	&& install.r docopt devtools tidyverse exams tools tth purrr tringr magrittr \
+	&& install.r docopt httr devtools exams tools tth purrr tringr magrittr \
 	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 
