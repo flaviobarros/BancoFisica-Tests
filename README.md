@@ -6,3 +6,11 @@
 
 # BancoFisica-Tests
 Dockerfile que gera imagem para ser utilizada no CircleCI para testes do repositório de questões.
+
+# Como utilizar
+Você pode baixar a imagem direto do [Docker Hub](https://hub.docker.com) com:
+
+```shell
+docker pull flaviobarros/bancofisica-tests
+```
+ou você pode utilizar em plataformas de integração contínua como o [Travis CI](https://travis-ci.org/). 
