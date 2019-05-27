@@ -13,6 +13,9 @@ RUN useradd docker \
 	&& chown docker:docker /home/docker \
 	&& addgroup docker staff
 
+## Noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+
 ## Run update
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
