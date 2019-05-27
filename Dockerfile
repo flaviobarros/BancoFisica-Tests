@@ -1,6 +1,6 @@
 ## Emacs, make this -*- mode: sh; -*-
  
-FROM ubuntu:trusty
+FROM ubuntu:latest
 
 ## This handle reaches Carl and Dirk
 MAINTAINER "Flavio Barros" flaviomargarito@gmail.com
