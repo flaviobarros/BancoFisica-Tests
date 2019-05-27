@@ -1,6 +1,6 @@
 ## Emacs, make this -*- mode: sh; -*-
  
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ## This handle reaches Carl and Dirk
 MAINTAINER "Flavio Barros" flaviomargarito@gmail.com
