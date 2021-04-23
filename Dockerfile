@@ -30,7 +30,7 @@ RUN apt-get install -y --no-install-recommends \
 		libcurl4-openssl-dev \
 		texlive-full 
 
-ENV R_BASE_VERSION 3.5.0
+ENV R_BASE_VERSION 4.0.5 
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 ## Also set a default CRAN repo, and make sure littler knows about it too
